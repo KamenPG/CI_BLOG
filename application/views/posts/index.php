@@ -7,6 +7,5 @@
 <br>
 <?php echo word_limiter($post['body'], 60) ?>
 <br>
-<br>
- <p><a class="btn btn-default" href="<?php echo site_url('index.php/posts/' . $post['slug']); ?>">Read More</a></p>
+<p><a class="btn btn-default" href="<?php echo site_url('index.php/posts/' . $post['slug']); ?>">Read More</a></p>
 <?php endforeach;  ?>
