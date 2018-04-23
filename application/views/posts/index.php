@@ -1,4 +1,4 @@
-<br><h2><?= $title ?></h2>
+<h2><?= $title ?></h2>
 <?php foreach ($posts as $post): ?>
   <br>
 

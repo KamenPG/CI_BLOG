@@ -1,4 +1,4 @@
-<br><h2><?= $title ?></h2><br>
+<h2><?= $title ?></h2><br>
 
 <?php echo validation_errors() ?>
 

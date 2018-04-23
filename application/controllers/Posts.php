@@ -5,7 +5,7 @@ class Posts extends CI_Controller {
 
     $data['title'] = "Latest Posts";
 
-    $data['posts'] = $this->Post_model->get_posts();
+    $data['posts'] = $this->post_model->get_posts();
 
     $this->load->view('templates/header');
     $this->load->view('posts/index', $data);
@@ -14,10 +14,8 @@ class Posts extends CI_Controller {
 
   public function view($slug = NULL){
 
-    $this->load->model('post_model');
     $data['post'] = $this->post_model->get_posts($slug);
     $post_id  = $data['post']['id'];
-    $this->load->model('comment_model');
     $data['comments'] = $this->comment_model->get_comments($post_id);
 
     if (empty($data['post'])) {
@@ -34,8 +32,12 @@ class Posts extends CI_Controller {
 
   public function create(){
 
+    //Check logged in
+    if (!$this->session->userdata('loggedin')) {
+    redirect('index.php/users/login');
+    }
+
     $data['title'] = 'Create Post';
-    $this->load->model('post_model');
 
     $data['categories'] = $this->post_model->get_categories();
 
@@ -67,8 +69,11 @@ class Posts extends CI_Controller {
         $post_image = $_FILES['userfile']['name'];
       }
 
-      $this->load->model('post_model');
       $this->post_model->create_post($post_image);
+
+      //Set message
+      $this->session->set_flashdata('post_created', 'Your post has been created !');
+
       redirect('index.php/posts');
 
     }
@@ -77,19 +82,37 @@ class Posts extends CI_Controller {
 
   public function delete($id){
 
+    //Check logged in
+    if (!$this->session->userdata('loggedin')) {
+    redirect('index.php/users/login');
+    }
+
     $this->load->model('post_model');
     $this->post_model->delete_post($id);
+
+    //Set message
+    $this->session->set_flashdata('post_deleted', 'Your post has been deleted !');
     redirect('index.php/posts');
 
   }
 
   public function edit($slug){
 
+    //Check logged in
+    if (!$this->session->userdata('loggedin')) {
+    redirect('index.php/users/login');
+    }
+
     $this->load->model('post_model');
 
     $data['categories'] = $this->post_model->get_categories();
 
     $data['post'] = $this->post_model->get_posts($slug);
+
+    //Check user
+    if ($this->session->userdata('user_id') != $this->post_model->get_posts($slug)['user_id']) {
+      redirect('index.php/posts');
+    }
 
     if (empty($data['post'])) {
       show_404();
@@ -105,8 +128,16 @@ class Posts extends CI_Controller {
   }
 
   public function update(){
+
+    //Check logged in
+    if (!$this->session->userdata('loggedin')) {
+    redirect('index.php/users/login');
+    }
     $this->load->model('post_model');
     $this->post_model->update_post();
+
+    //Set message
+    $this->session->set_flashdata('post_updated', 'Your post has been updated!');
     redirect('index.php/posts');
 
   }

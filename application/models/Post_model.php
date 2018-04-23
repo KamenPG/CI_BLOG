@@ -30,6 +30,7 @@ public function create_post($post_image){
     'slug' => $slug,
     'body' => $this->input->post('body'),
     'category_id' => $this->input->post('category_id'),
+    'user_id' => $this->session->userdata('user_id'),
     'post_image' => $post_image
 
   );

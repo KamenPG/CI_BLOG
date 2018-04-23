@@ -6,8 +6,6 @@ class Categories extends CI_Controller{
 
     $data['title'] = "Categories";
 
-    $this->load->model('category_model');
-
     $data['categories'] = $this->category_model->get_categories();
 
     $this->load->view('templates/header');
@@ -16,6 +14,11 @@ class Categories extends CI_Controller{
   }
 
   public function create(){
+
+    //Check logged in
+    if (!$this->session->userdata('loggedin')) {
+    redirect('index.php/users/login');
+    }
     $data['title'] = 'Create Category';
 
     $this->form_validation->set_rules('name', 'Name', 'required');
@@ -27,8 +30,10 @@ class Categories extends CI_Controller{
     }
     else {
 
-      $this->load->model('category_model');
       $this->category_model->create_category();
+
+      //Set message
+      $this->session->set_flashdata('category_created', 'Your category has been created !');
       redirect('index.php/categories');
     }
 
@@ -36,11 +41,7 @@ class Categories extends CI_Controller{
 
   public function posts($id){
 
-    $this->load->model('category_model');
-
     $data['title'] = $this->category_model->get_category($id)->name;
-
-    $this->load->model('post_model');
 
     $data['posts'] = $this->post_model->get_posts_by_category($id);
 

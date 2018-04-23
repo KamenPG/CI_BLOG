@@ -28,6 +28,23 @@
       <a class="nav-link" href="<?php echo base_url(); ?>index.php/categories">Categories</a>
     </li>
   </ul>
+  <?php if (!$this->session->userdata('loggedin')): ?>
+
+  <ul class="nav navbar-nav navbar-right">
+    <li class="nav-item">
+      <a class="nav-link" href="<?php echo base_url(); ?>index.php/users/login">Login</a>
+    </li>
+  </ul>
+  <ul class="nav navbar-nav navbar-right">
+    <li class="nav-item">
+      <a class="nav-link" href="<?php echo base_url(); ?>index.php/users/register">Register</a>
+    </li>
+  </ul>
+
+<?php endif; ?>
+
+<?php if ($this->session->userdata('loggedin')): ?>
+
   <ul class="nav navbar-nav navbar-right">
     <li class="nav-item">
       <a class="nav-link" href="<?php echo base_url(); ?>index.php/posts/create">Create Post</a>
@@ -38,8 +55,45 @@
       <a class="nav-link" href="<?php echo base_url(); ?>index.php/categories/create">Create Category</a>
     </li>
   </ul>
+  <ul class="nav navbar-nav navbar-right">
+    <li class="nav-item">
+      <a class="nav-link" href="<?php echo base_url(); ?>index.php/users/logout">Logout</a>
+    </li>
+  </ul>
+<?php endif; ?>
+
 </div>
 </nav>
+<div class="container"><br>
 
+  <!-- Flash messages -->
 
-<div class="container">
+  <?php if($this->session->flashdata('user_registered')): ?>
+    <?php echo '<p class="alert alert-success">'.$this->session->flashdata('user_registered').'</p>'; ?>
+  <?php endif; ?>
+
+  <?php if($this->session->flashdata('post_created')): ?>
+    <?php echo '<p class="alert alert-success">'.$this->session->flashdata('post_created').'</p>'; ?>
+  <?php endif; ?>
+
+  <?php if($this->session->flashdata('post_updated')): ?>
+    <?php echo '<p class="alert alert-success">'.$this->session->flashdata('post_updated').'</p>'; ?>
+  <?php endif; ?>
+
+  <?php if($this->session->flashdata('category_created')): ?>
+    <?php echo '<p class="alert alert-success">'.$this->session->flashdata('category_created').'</p>'; ?>
+  <?php endif; ?>
+
+  <?php if($this->session->flashdata('post_deleted')): ?>
+    <?php echo '<p class="alert alert-success">'.$this->session->flashdata('post_deleted').'</p>'; ?>
+  <?php endif; ?>
+
+  <?php if($this->session->flashdata('login_failed')): ?>
+    <?php echo '<p class="alert alert-danger">'.$this->session->flashdata('login_failed').'</p>'; ?>
+  <?php endif; ?>
+  <?php if($this->session->flashdata('user_loggedin')): ?>
+    <?php echo '<p class="alert alert-success">'.$this->session->flashdata('user_loggedin').'</p>'; ?>
+  <?php endif; ?>
+  <?php if($this->session->flashdata('user_loggedout')): ?>
+    <?php echo '<p class="alert alert-success">'.$this->session->flashdata('user_loggedout').'</p>'; ?>
+  <?php endif; ?>
