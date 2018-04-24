@@ -3,13 +3,13 @@ Blog App /CRUD/ built with Codeigniter framework
 ###################
 
 <p align="center">
-  <img src ="/ci_blog/screenshots/login.png" />
-  <img src ="/ci_blog/screenshots/register.png" />
-  <img src ="/ci_blog/screenshots/posts.png" />
-  <img src ="/ci_blog/screenshots/pagination.png" />
-  <img src ="/ci_blog/screenshots/create.png" />
-  <img src ="/ci_blog/screenshots/categories.png" />
-  <img src ="/ci_blog/screenshots/category.png" />
+  <img src ="/screenshots/login.png" />
+  <img src ="/screenshots/register.png" />
+  <img src ="/screenshots/posts.png" />
+  <img src ="/screenshots/pagination.png" />
+  <img src ="/screenshots/create.png" />
+  <img src ="/screenshots/categories.png" />
+  <img src ="/screenshots/category.png" />
 </p>
 
 **************************
