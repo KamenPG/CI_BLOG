@@ -11,6 +11,8 @@
   <br>
   <img src ="screenshots/create.png" />
   <br>
+  <img src ="screenshots/comments.png" />
+  <br>
   <img src ="screenshots/categories.png" />
   <br>
   <img src ="screenshots/category.png" />
