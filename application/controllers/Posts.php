@@ -1,15 +1,27 @@
 <?php
 
 class Posts extends CI_Controller {
-  public function index(){
+  public function index($offset = 0){
+
+    //Pagination config
+    $config['base_url'] = base_url() . 'index.php/posts/index';
+    $config['total_rows'] = $this->db->count_all('posts');
+    $config['per_page'] = 3;
+    $config['uri_segment'] = 3;
+    // Produces: class="myclass"
+    $config['attributes'] = array('class' => 'pagination-link');
+
+    //Init Pagination
+    $this->pagination->initialize($config);
 
     $data['title'] = "Latest Posts";
 
-    $data['posts'] = $this->post_model->get_posts();
+    $data['posts'] = $this->post_model->get_posts(false, $config['per_page'], $offset);
 
     $this->load->view('templates/header');
     $this->load->view('posts/index', $data);
     $this->load->view('templates/footer');
+
   }
 
   public function view($slug = NULL){
