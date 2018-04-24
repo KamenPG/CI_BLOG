@@ -2,11 +2,17 @@
 
 <p align="center">
   <img src ="screenshots/login.png" />
+  <br>
   <img src ="screenshots/register.png" />
+  <br>
   <img src ="screenshots/posts.png" />
+  <br>
   <img src ="screenshots/pagination.png" />
+  <br>
   <img src ="screenshots/create.png" />
+  <br>
   <img src ="screenshots/categories.png" />
+  <br>
   <img src ="screenshots/category.png" />
 </p>
 
