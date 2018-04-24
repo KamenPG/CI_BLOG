@@ -1,6 +1,4 @@
-###################
-Blog App /CRUD/ built with Codeigniter framework 
-###################
+<h1>Blog App /CRUD/ built with Codeigniter framework</h1>
 
 <p align="center">
   <img src ="screenshots/login.png" />
@@ -12,9 +10,8 @@ Blog App /CRUD/ built with Codeigniter framework
   <img src ="screenshots/category.png" />
 </p>
 
-**************************
-SQL
-**************************
+
+<h1>SQL</h1>
 
 CREATE TABLE `posts` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
