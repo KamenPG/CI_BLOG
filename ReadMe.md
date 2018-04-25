@@ -3,6 +3,7 @@
 <p align="center">
   <img src ="screenshots/login.png" />
   <br>
+  <hr>
   <img src ="screenshots/register.png" />
   <br>
   <img src ="screenshots/posts.png" />
