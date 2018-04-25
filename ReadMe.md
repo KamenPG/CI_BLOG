@@ -6,16 +6,22 @@
   <hr>
   <img src ="screenshots/register.png" />
   <br>
+  <hr>
   <img src ="screenshots/posts.png" />
   <br>
+  <hr>
   <img src ="screenshots/pagination.png" />
   <br>
+  <hr>
   <img src ="screenshots/create.png" />
   <br>
+  <hr>
   <img src ="screenshots/comments.png" />
   <br>
+  <hr>
   <img src ="screenshots/categories.png" />
-  <br>
+  <br>  
+  <hr>
   <img src ="screenshots/category.png" />
 </p>
 
